@@ -19,8 +19,11 @@ func main() {
   // from the disk again. This makes serving HTML pages very fast.
   router.LoadHTMLGlob("templates/*")
 
-   // Handle Index
-   router.GET("/", handlers.ShowIndexPage)
+  // Handle Index
+  router.GET("/", handlers.ShowIndexPage)
+
+  // Handle GET requests at /article/view/some_article_id
+  router.GET("/article/view/:article_id", handlers.ShowArticle)
 
   // Start serving the application
   router.Run()
